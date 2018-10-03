@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block title %} Urk7 login {% endblock %}
+{% block body %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="https://sassets.knvb.nl/sites/voetbal.nl/files/sportlink_images/200x200/F9079D6567BA25B2788496DEC3DE1235.png?cache=voetbal" width="50" height="30" class="d-inline-block align-top" alt="">
+                Urk 7</a>
+        </nav>
+
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+
+    {% endif %}
+    <div class="container">
+    <form action="{{ path('login') }}" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}" />
+
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="_password"  />
+
+        <input type="hidden" name="_target_path" value="/home" />
+
+        <button type="submit">login</button>
+    </form>
+    </div>
+
+    <div class="container">
+        <button type="button" class="btn btn-primary">Logout<a href="{{ path('logout') }}"></a></button>
+    </div>
+
+
+
+{% endblock %}
