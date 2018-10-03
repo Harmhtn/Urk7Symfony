@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Succes{% endblock %}
+
+{% block body %}
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        <h5 class="text-success">Welkom {{ app.user.username }}!</h5>
+        <br>
+        <div class="container">
+            <a href="{{ path('logout') }}" class="btn btn-danger">Log out</a>
+        </div>
+    {% else %}
+        Klik <a href="{{ path('login') }}">hier</a> om in te loggen.
+    {% endif %}
+{% endblock %}

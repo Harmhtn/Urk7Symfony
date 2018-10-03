@@ -13,26 +13,17 @@
 
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-
     {% endif %}
-    <div class="container">
-    <form action="{{ path('login') }}" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}" />
-
-        <label for="password">Password:</label>
-        <input type="text" id="password" name="_password"  />
-
-        <input type="hidden" name="_target_path" value="/home" />
-
-        <button type="submit">login</button>
-    </form>
-    </div>
 
     <div class="container">
-        <button type="button" class="btn btn-primary">Logout<a href="{{ path('logout') }}"></a></button>
+        <form action="{{ path('login') }}" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="_username" value="{{ last_username }}" />
+
+            <label for="password">Password:</label>
+            <input type="text" id="password" name="_password" />
+
+            <button class="btn btn-primary" type="submit">Log in</button>
+        </form>
     </div>
-
-
-
 {% endblock %}
